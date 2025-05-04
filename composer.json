@@ -1,0 +1,56 @@
+{
+    "name": "id161836712/yii2-tinymce-widget",
+    "description": "TinyMCE widget for Yii2.",
+    "type": "yii2-extension",
+    "keywords": [
+        "yii2",
+        "tinymce"
+    ],
+    "homepage": "https://github.com/leonidkim01/yii2-adminlte4",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Leonid Kim",
+            "email": "kiml@list.ru",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/id161836712/yii2-tinymce-widget/issues",
+        "source": "https://github.com/id161836712/yii2-tinymce-widget"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "mklkj/tinymce-i18n": "^25.2",
+        "tinymce/tinymce": "^7.8",
+        "yiisoft/yii2": "^2.0.50"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6.22",
+        "rector/rector": "^2.0.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "id161836712\\tinymce\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "id161836712\\tests\\tinymce\\": "tests"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
+    }
+}
