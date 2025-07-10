@@ -6,6 +6,9 @@ namespace id161836712\tinymce;
 
 use yii\web\AssetBundle;
 
+/**
+ * @inheritdoc
+ */
 final class TinyMceAsset extends AssetBundle
 {
     /**

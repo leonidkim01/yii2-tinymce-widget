@@ -8,6 +8,11 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\InputWidget;
 
+use function file_exists;
+
+/**
+ * @inheritdoc
+ */
 final class TinyMce extends InputWidget
 {
     /**
@@ -56,9 +61,13 @@ final class TinyMce extends InputWidget
         if ($this->language !== 'en') {
             $langFile = "{$this->language}.js";
             $langAssetBundle = TinyMceI18nAsset::register($view);
-            $langAssetBundle->js[] = $langFile;
-            $this->clientOptions['language_url'] = $langAssetBundle->baseUrl . "/{$langFile}";
-            $this->clientOptions['language'] = $this->language;
+            $filePath = $langAssetBundle->sourcePath . DIRECTORY_SEPARATOR . $langFile;
+
+            if (file_exists($filePath)) {
+                $langAssetBundle->js[] = $langFile;
+                $this->clientOptions['language_url'] = $langAssetBundle->baseUrl . "/{$langFile}";
+                $this->clientOptions['language'] = $this->language;
+            }
         }
 
         $this->clientOptions['selector'] = "#$id";
@@ -67,6 +76,6 @@ final class TinyMce extends InputWidget
 
         $options = Json::encode($this->clientOptions);
 
-        $view->registerJs("tinymce.remove('#$id');tinymce.init($options);");
+        $view->registerJs(";tinymce.remove('#$id');tinymce.init($options);");
     }
 }
