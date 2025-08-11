@@ -14,7 +14,7 @@ final class TinyMceI18nAsset extends AssetBundle
     /**
      * @inheritdoc
      */
-    public $sourcePath = '@vendor/mklkj/tinymce-i18n/langs7';
+    public $sourcePath = '@vendor/mklkj/tinymce-i18n';
 
     /**
      * @inheritdoc
