@@ -73,13 +73,13 @@ final class TinyMce extends InputWidget
 
         if ($this->language !== 'en') {
             $version = $this->getVersion();
-            $langFile = "/langs{$version}/{$this->language}.js";
+            $langFile = "langs{$version}/{$this->language}.js";
             $langAssetBundle = TinyMceI18nAsset::register($view);
-            $filePath = "{$langAssetBundle->sourcePath}{$langFile}";
+            $filePath = "{$langAssetBundle->sourcePath}/{$langFile}";
 
             if (file_exists($filePath)) {
                 $langAssetBundle->js[] = $langFile;
-                $this->clientOptions['language_url'] = "{$langAssetBundle->baseUrl}{$langFile}";
+                $this->clientOptions['language_url'] = "{$langAssetBundle->baseUrl}/{$langFile}";
                 $this->clientOptions['language'] = $this->language;
             }
         }
